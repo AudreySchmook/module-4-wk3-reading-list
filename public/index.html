@@ -14,5 +14,15 @@
 </head>
 <body>
     <h1>My Reading List</h1>
+
+    <ul id="bookList" class="list-group">
+    </ul>
+
+    <script type="text/javascript">
+    $.getJSON('/library/books/list', function(data){
+        $("#bookList").append('<li class = "list-group">' + data.title + '</li>');
+    });
+    </script>
+    
 </body>
 </html>
