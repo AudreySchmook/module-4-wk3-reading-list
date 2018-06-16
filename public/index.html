@@ -26,17 +26,17 @@
         });
 
         function makeBook(){
-            alert("Submit is correctly getting called");
+            //alert("Submit is correctly getting called");
             var url = '/library/books/add';
             $.ajax({
                 type: "POST",
                 url: url,
-                data: { author: $("#bAuth").val(), title: $("#bName"}.val(), status: "read" },
+                data: { author: $("#bAuth").val(), title: $("#bName").val(), status: "read" },
                 success: function(res){
                     alert(res);
                 }
             });
-        })
+        }
         </script>
     
 </head>
