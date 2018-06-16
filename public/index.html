@@ -6,30 +6,58 @@
     <title>My Reading List</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/style.css" />
     <script
     src="https://code.jquery.com/jquery-3.3.1.js"
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/style.css" />
+    <script type="text/javascript">
+        $("document").ready(function(){
+        var list = $("#bookList");
+        $.getJSON('/library/books/list', function(data){
+            data.forEach(function(book){
+                list.append('<li class="list-group-item"><strong>' +
+                book.title + '</strong> by ' + book.author + 
+                '</li>');
+            });
+           // for(var i = 0; i < data.length; i++){
+            
+            });
+        });
+
+        function makeBook(){
+            alert("Submit is correctly getting called");
+            var url = '/library/books/add';
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: { author: $("#bAuth").val(), title: $("#bName"}.val(), status: "read" },
+                success: function(res){
+                    alert(res);
+                }
+            });
+        })
+        </script>
+    
 </head>
 <body>
     <h1>My Reading List</h1>
 
+    <form id="newBook">
+        <input id="bName" type="text" placeholder="Book Title">
+        <input id= "bAuth" type="text" placeholder="Author">
+        <label for="bRead">Read
+            <input id="bRead" type="checkbox">
+        </label>
+        <input onclick="javascript:makeBook()" class='btn btn-primary' type="submit" value="Add">
+    </form>
+    
+   
+
     <ul id="bookList" class="list-group">
     </ul>
 
-    <script type="text/javascript">
-    var list = $("#bookList");
-    $.getJSON('/library/books/list', function(data){
-        data.forEach(function(book){
-            list.append('<li class="list-group-item"><strong>' +
-            book.title + '</strong> by ' + book.author + 
-            '</li>');
-        });
-       // for(var i = 0; i < data.length; i++){
-        
-    });
-    </script>
+    
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
