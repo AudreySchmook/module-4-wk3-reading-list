@@ -42,24 +42,33 @@
 <body class="bg">
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-                <h1 class="display-4">My Reading List</h1>
-                <p class="lead">Here's a list of books I've read or want to read.</p>
+                <h1 class="title">My Reading List</h1>
+                <p class="subtitle">A list of books I've read or want to read</p>
         </div>
     </div>
 
-    <form id="newBook">
-        <input id="bName" type="text" placeholder="Book Title">
-        <input id= "bAuth" type="text" placeholder="Author">
-        <label for="bRead">Read
-            <input id="bRead" type="checkbox">
-        </label>
-        <input onclick="javascript:makeBook()" class='btn btn-primary' type="submit" value="Add">
-    </form>
+    <div class="container">
+        <div class="row">   
+            <div id="newBook" class="column">
+                <form>
+                    <input id="bName" type="text" placeholder="Book Title">
+                    <input id= "bAuth" type="text" placeholder="Author">
+                    <label for="bRead">Read
+                        <input id="bRead" type="checkbox">
+                    </label>
+                    <input onclick="javascript:makeBook()" class='btn btn-primary' type="submit" value="Add">
+                </form>
+            </div>
+            <div id="bookList" class="column">
+                <ul class="list-group">
+                </ul>
+            </div>
+        </div>
+    </div>
     
-   
 
-    <ul id="bookList" class="list-group">
-    </ul>
+    
+    
 
     
 

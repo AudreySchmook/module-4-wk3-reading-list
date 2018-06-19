@@ -1,7 +1,7 @@
 body {
-  padding: 50px;
+  padding: 20px;
   font: 14px "Bookman", Times, serif;
-  color: whitesmoke;
+  color: black;
   background-color: rgb(148, 124, 93);
 }
 
@@ -11,10 +11,24 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
+  color: whitesmoke;
 }
 
 .btn-primary {
   color: whitesmoke !important;
   background-color: rgba(0, 0, 0, 0.589) !important;
   border-color: rgba(0, 0, 0, 0.589) !important;
+  border-radius: 8px;
+}
+
+
+#newBook {
+  color: whitesmoke;
+}
+
+#bookList {
+  border-color: black;
+  background-color: rgb(80, 72, 62);
+  color: black;
+  font: 18pt;
 }

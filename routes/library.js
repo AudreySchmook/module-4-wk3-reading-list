@@ -38,5 +38,21 @@ router.post('/books/add', function(req, res){
     });
 });
 
+//router.get('/books/:id/update', function (req, res) {
+  //  var book = req.book;
+
+    //book = _.extend(book, req.body);
+
+    //book.save(function(err) {
+    //if (err) {
+      //  return res.send('/books', {
+        //    errors: err.errors,
+          //  book: book
+        //});
+    //} else {
+      //  res.jsonp(book);
+    //}
+
+//});
 
 module.exports = router;
