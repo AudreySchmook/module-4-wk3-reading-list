@@ -38,21 +38,21 @@ router.post('/books/add', function(req, res){
     });
 });
 
-//router.get('/books/:id/update', function (req, res) {
-  //  var book = req.book;
+router.put('/books/:id', function (req, res) {
+  console.log(req.body);
+    Books.update({ _id: req.params.id }, { $set: req.body }, { multi: false }, function(err) {
+        if(err) { throw err; }  
+        res.send('marked as read');
+    });
+});
 
-    //book = _.extend(book, req.body);
+router.delete('/books/:id', function (req, res) {
+    console.log(req.body);
+      Books.update({ _id: req.params.id }, { $set: req.body }, { multi: false }, function(err) {
+          if(err) { throw err; }  
+          res.send('book deleted');
+      });
+  });
 
-    //book.save(function(err) {
-    //if (err) {
-      //  return res.send('/books', {
-        //    errors: err.errors,
-          //  book: book
-        //});
-    //} else {
-      //  res.jsonp(book);
-    //}
-
-//});
 
 module.exports = router;
